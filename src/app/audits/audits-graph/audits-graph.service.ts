@@ -61,12 +61,12 @@ export class AuditsGraphService {
     //http://10.15.10.214:8080/fliq/v3/shortaudits
   };
 
-  /*  convertDate(date: string) {
+    convertDate(date: string) {
      let newDate = new Date(Date.parse(date)).toLocaleDateString("en-US");
      return newDate;
-   } */
+   } 
 
-  /* getAuditsLineGraphData(ChartData: ChartData[]) {
+   getAuditsLineGraphData(ChartData: ChartData[]) {
     this.lineChart = [
       {
         name: "SORT",
@@ -93,10 +93,10 @@ export class AuditsGraphService {
       this.fetchLineGraphData(audit).subscribe();
     });
     return this.lineChart;
-  }; */
+  }; 
 
-  /* fetchLineGraphData(audit: ChartData) {
-    return this.http.get<AuditStat>(`http://13.48.203.158:8080/fliq/v3/stat/${audit.key}`)
+   fetchLineGraphData(audit: ChartData) {
+    return this.http.get<AuditStat>(`http://ec2-13-48-203-158.eu-north-1.compute.amazonaws.com:8080/fliq/v3/stat/${audit.key}`)
       .pipe(map(newAuditStat => {
         newAuditStat.phaseScores.map((phaseScore) => {
           let foundPhase = _.find(this.lineChart, (phase) => {
@@ -118,10 +118,11 @@ export class AuditsGraphService {
             return data.name == phaseScore.auditPhase;
           });
           this.lineChart[index] = foundPhase;
+          
         });
         return this.lineChart;
       }));
-  } */
+  } 
 }
 
 

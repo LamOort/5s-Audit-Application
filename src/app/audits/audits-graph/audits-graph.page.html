@@ -52,7 +52,60 @@
       </ion-row>
     </ion-radio-group>
   </ion-grid>
-  <div class="barChart__container">
+  <ion-grid>
+    <ion-row class="ion-margin-top">
+      <ion-col>
+        <div class="ion-text-center">
+          <h1>
+            Choose Audit phase you would like to see its trending
+          </h1>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-radio-group
+      style=" border-bottom-color: transparent !important;
+        box-shadow: none !important;"
+      (ionChange)="onPhaseSelected($event)"
+    >
+      <ion-row>
+        <ion-col size-md="2.4" size-xs="3.5">
+          <ion-item>
+            <ion-label class="ion-text-center">SORT</ion-label>
+            <ion-radio mode="md" item-left value="0"></ion-radio>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size-md="2.4" size-xs="3.5">
+          <ion-item>
+            <ion-label class="ion-text-center">SHINE</ion-label>
+            <ion-radio mode="md" item-left value="1"></ion-radio>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size-md="2.4" size-xs="3.5">
+          <ion-item>
+            <ion-label class="ion-text-center">ORDER</ion-label>
+            <ion-radio mode="md" item-left value="2"></ion-radio>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size-md="2.4" size-xs="3.5">
+          <ion-item>
+            <ion-label class="ion-text-center">SUSTAIN</ion-label>
+            <ion-radio mode="md" item-left value="3"></ion-radio>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size-md="2.4" size-xs="3.5">
+          <ion-item>
+            <ion-label class="ion-text-center">STANDARDIZE</ion-label>
+            <ion-radio mode="md" item-left value="4"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </ion-grid>
+  <div class="barChart__container" *ngIf="!isLoading">
     <combo-chart-component
         class="chart-container barChart__element"
         [view]="view"

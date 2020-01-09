@@ -10,13 +10,15 @@ import * as regression from 'regression';
 })
 export class AuditsGraphPage implements OnInit {
   isLoading: boolean;
+  selectedPhase: number;
   auditsAverageChart: ChartData[];
   lineChart: any[];
+  phaseChart: any[];
   value: number;
   multi: any[];
   data: any[];
 
-  view: any[] = [700, 400];
+  view: any[] = [800, 400];
 
   // options
   showXAxis = true;
@@ -28,7 +30,7 @@ export class AuditsGraphPage implements OnInit {
   showXAxisLabel = true;
   xAxisLabel = 'Audits';
   showYAxisLabel = true;
-  yAxisLabel = 'Trend';
+  yAxisLabel = 'Score';
   showGridLines = true;
   innerPadding = '5%';
   animations: boolean = true;
@@ -36,14 +38,14 @@ export class AuditsGraphPage implements OnInit {
     name: 'audits stats',
     selectable: true,
     group: 'Ordinal',
-    domain: ['#000000']
+    domain: ['#FF0000', "#FF9A00"]
   };
 
   comboBarScheme = {
     name: 'audits score',
     selectable: true,
     group: 'Ordinal',
-    domain: ['#ffcc99']
+    domain: ['#3880ff']
   };
 
   showRightYAxisLabel: boolean = true;
@@ -54,13 +56,14 @@ export class AuditsGraphPage implements OnInit {
   }
 
   ngOnInit() {
-    this.value = 5;
+    this.value = 10;
     this.isLoading = true;
     this.lineChart = [];
     this.auditsGraphService.barChartData.subscribe(data => {
       this.auditsAverageChart = data;
-      this.lineChart = this.createTrendChart(this.auditsAverageChart);/* this.auditsGraphService.getAuditsLineGraphData(this.auditsAverageChart); */
-      //console.log(this.lineChart);
+      this.lineChart = this.createTrendChart(this.auditsAverageChart);
+      this.phaseChart = this.auditsGraphService.getAuditsLineGraphData(this.auditsAverageChart); 
+      this.isLoading = false;
     });
 
   };
@@ -71,9 +74,17 @@ export class AuditsGraphPage implements OnInit {
 
   onChangeHandler(event) {
     this.value = +event.target.value;
-    this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();
+    this.auditsGraphService.getAuditsBarGraphData(0, this.value).subscribe();  
   }
 
+  onPhaseSelected(event) {  
+    this.selectedPhase = +event.target.value;
+    let selectedPhaseData = this.phaseChart[this.selectedPhase];
+    if (this.lineChart.length === 2) {  
+      this.lineChart.pop();
+      this.lineChart.push(this.createPhaseTrendChart(selectedPhaseData));  
+    } 
+  }
 
   onSelect(event) {
     console.log(event);
@@ -86,8 +97,17 @@ export class AuditsGraphPage implements OnInit {
   createTrendChart(barChart: ChartData[]) {
     let lineChartTemplates = [
       {
-        name: "Trend",
+        name: "Average Score Trend",
         series: []
+      },
+      {
+        name: "Phase Trend",
+        series: [
+          {
+            value: 4,
+            name: ""
+          }
+        ]
       }
     ];
     let barChartData = new Array;
@@ -97,12 +117,29 @@ export class AuditsGraphPage implements OnInit {
     };
 
     let result = regression.linear(barChartData);
-    console.log(result);
     for (let i = 0; i < barChartData.length; i++) {
       lineChartTemplates[0].series.push({ 'value': result.points[i][1], 'name': barChart[i].name });
     }
 
     return lineChartTemplates;
+  }
+
+  createPhaseTrendChart(phaseLine: any) {
+
+    let phaseLineTemplates = {
+        name: `Phase Trend`,
+        series: []
+    };
+    let phaseLineData = new Array;
+    for (let i = 0; i < phaseLine.series.length; i++) {
+      phaseLineData.push([i, phaseLine.series[i].value]);
+    };
+    let result = regression.linear(phaseLineData);
+    for (let j = 0; j < result.points.length; j++) {
+      phaseLineTemplates.series.push({ 'value': result.points[j][1], 'name': phaseLine.series[j].name });
+    }
+    
+    return phaseLineTemplates;
   }
 
 }
