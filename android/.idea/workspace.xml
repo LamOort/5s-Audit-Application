@@ -6,14 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2235ebe-7d95-4f98-8db4-a939823ca4ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/android.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/capacitor-cordova-android-plugins/capacitor-cordova-android-plugins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/capacitor-cordova-android-plugins/capacitor-cordova-android-plugins.iml" afterDir="false" />
-    </list>
+    <list default="true" id="f2235ebe-7d95-4f98-8db4-a939823ca4ba" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +17,7 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_C_API_22" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_9_API_29" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -49,7 +42,7 @@
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -119,8 +112,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_C_API_22" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-01-09T08:20:57.770Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_9_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-01-09T08:30:22.413Z" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -213,7 +207,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.2468017" />
       <window_info id="Structure" side_tool="true" />
@@ -254,7 +247,7 @@
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
